@@ -1,6 +1,6 @@
 from django.db import models
 
-class News(miodel.models):
+class News(model.models):
   title=models.CharField(max_length=255)
   image=models.models.ImageField(upload_to="news")
   description=models.TextField()
