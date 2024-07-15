@@ -1,4 +1,9 @@
 from django.shortcuts import render
+from news.models import News
 
 def home_page(request):
-  return render(request,"index.html")
+  news=News.objects.all() #it is query set
+  context={
+  "news":news,
+  }
+  return render(request,"index.html",context)
