@@ -7,3 +7,6 @@ def home_page(request):
   "news":news,
   }
   return render(request,"index.html",context)
+
+def contact_us(request):
+  return render(request, "contactus.html")
