@@ -24,3 +24,18 @@ class News(models.Model):
     verbose_name = 'news'
     verbose_name_plural  ="news"
   
+  class ContactUs(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    email = models.EmailField()
+    phone = models.PositiveBigIntegerField()
+    feedback_message = models.TextField()
+
+    def __str__(self):
+        return self.first_name + " " + self.last_name
+    class Meta:
+        verbose_name = "Contact Us"
+        verbose_name_plural = "Contact Us"
+  
+
+
