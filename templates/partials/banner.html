@@ -9,7 +9,7 @@
             <div class="img-bg" style="background-image: url('{{i.image.url}}')"></div>
             <div class="contents">
               <span class="caption">Editor's Pick</span>
-              <h2><a href="blog-single.html">{{i.title}}</a></h2>
+              <h2><a href="{% url "detailnews" i.id %}">{{i.title}}</a></h2>
               <p class="mb-3">{{i.description|slice:":400" }}....</p>
               
               <div class="post-meta">

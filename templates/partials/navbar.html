@@ -47,13 +47,14 @@
               <li class="active">
                 <a href="{% url "home_page" %}" class="nav-link text-left">Home</a>
               </li>
-              {% for cat in category %}
-              <li>
-                <a href="categories.html" class="nav-link text-left">{{ cat.name }}</a>
-              </li>
-              {% endfor %}
-              <li><a href="{% url "contact_us" %}" class="nav-link text-left">Contact</a></li>
-            </ul>                                                                                                                                                                                                                                                                                         
+            </li>
+            {% for cat in category %}
+            <li>
+              <a href="{% url "category" cat.id %}" class="nav-link text-left">{{ cat.name }}</a>
+            </li>
+            {% endfor %}
+            <li><a href="{% url "contact_us" %}" class="nav-link text-left">Contact</a></li>
+          </ul>                                                                                                                                                                                                                                                                                         
           </nav>
         </div>
       </div>
