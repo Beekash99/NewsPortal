@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from news.models import News, Category
+from news.forms import ContactUsForm
 
 
 def home_page(request):
@@ -40,7 +41,17 @@ def contact_us(request):
 
 def detail_news(request, news_id):
     detail_news = News.objects.get(id=news_id)
+    detail_news.views_count += 1
+    detail_news.save()
     context = {
         "detail_news":detail_news,
     }
     return render(request, "details.html", context)
+
+def contact_us(request):
+    form = ContactUsForm(request.POST or None) #
+    if form.is_valid():
+        form.save()
+    else:
+        print(form.errors)
+    return render(request, "contactus.html")
