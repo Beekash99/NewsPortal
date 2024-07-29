@@ -1,4 +1,4 @@
-from news.models import Category
+from news.models import Category, Subcribe
 
 def category(request):
   category= Category.objects.all()

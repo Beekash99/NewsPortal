@@ -58,3 +58,14 @@ class Comment(models.Model):
     def __str__(self):
         return f'{self.name} - {self.news.title}'
 
+class Subcribe(models.Model):
+    email = models.EmailField()
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.email
+    
+class Meta:
+        verbose_name = "Subcribe"
+        verbose_name_plural = "Subcribe"

@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from news.models import News, Category
-from news.forms import ContactUsForm
+from news.models import News, Category, Subcribe
+from news.forms import ContactUsForm, SubcribeForm
 
 
 def home_page(request):
@@ -55,3 +55,16 @@ def contact_us(request):
     else:
         print(form.errors)
     return render(request, "contactus.html")
+
+def subcribe(request):
+    print("this funcation is called.....")
+    form = SubcribeForm(request.POST or None)
+    try:
+        if form.is_valid():
+            form.save()
+            return redirect("home_page")
+        else:
+            return redirect("home_page")
+    except Exception as e:
+        return redirect("home_page")
+    return(request, "partials/footer.html")
