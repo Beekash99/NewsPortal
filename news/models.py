@@ -15,11 +15,12 @@ class Category(models.Model):
 
 class News(models.Model):
     title = models.CharField(max_length=255)
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, related_name="news_category")
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="news_category")
     image = models.ImageField(upload_to="news")
     description = models.TextField()
     posted_by= models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,related_name="news_reporter")
     is_editorial =  models.BooleanField(default=False)
+    is_publish = models.BooleanField(default=False)
     views_count = models.PositiveIntegerField(default=0)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
@@ -58,7 +59,7 @@ class Comment(models.Model):
     def __str__(self):
         return f'{self.name} - {self.news.title}'
 
-class Subcribe(models.Model):
+class Subscribe(models.Model):
     email = models.EmailField()
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
@@ -69,3 +70,16 @@ class Subcribe(models.Model):
 class Meta:
         verbose_name = "Subcribe"
         verbose_name_plural = "Subcribe"
+
+
+class SocialMedia(models.Model):
+    facebook = models.URLField()
+    twitter = models.URLField()
+    instagram = models.URLField()
+
+    def __str__(self):
+        return "Social Media"
+
+    class Meta:
+        verbose_name = "SocialMedia"
+        verbose_name_plural = "SocialMedia"

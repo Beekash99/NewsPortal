@@ -13,14 +13,14 @@
         </div>
         <div class="col-12 col-lg-6 ml-auto d-flex">
           <div class="ml-md-auto top-social d-none d-lg-inline-block">
-            <a href="#" class="d-inline-block p-3"><span class="icon-facebook"></span></a>
-              <a href="#" class="d-inline-block p-3"><span class="icon-twitter"></span></a>
-              <a href="#" class="d-inline-block p-3"><span class="icon-instagram"></span></a>
+            <a href="{{social.facebook}}" class="d-inline-block p-3"><span class="icon-facebook"></span></a>
+            <a href="{{social.twitter}}" class="d-inline-block p-3"><span class="icon-twitter"></span></a>
+            <a href="{{social.instagram}}" class="d-inline-block p-3"><span class="icon-instagram"></span></a>
           </div>
-          <form action="#" class="search-form d-inline-block">
-
+          <form  method="get" action="{% url "search" %}" class="search-form d-inline-block">
+            {% csrf_token %}
             <div class="d-flex">
-              <input type="email" class="form-control" placeholder="Search...">
+              <input type="text" name="query" class="form-control" placeholder="Search...">
               <button type="submit" class="btn btn-secondary" ><span class="icon-search"></span></button>
             </div>
           </form>
