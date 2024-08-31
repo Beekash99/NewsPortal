@@ -1,4 +1,4 @@
-from news.models import ContactUs, Subscribe, News
+from news.models import ContactUs, Subscribe, News, Comment
 from django import forms
 
 
@@ -25,3 +25,9 @@ class updateNewsByReporterForm(forms.ModelForm):
     class Meta:
         model = News
         fields = ("title","category","image","description")
+
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model= Comment
+        fields = ("Name","Email","Message")

@@ -49,15 +49,18 @@ class ContactUs(models.Model):
 
 
 class Comment(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
-    website = models.URLField(blank=True, null=True)
-    message = models.TextField()
-    news = models.ForeignKey(News, related_name='comments', on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
+    Name = models.CharField(max_length=100)
+    Email = models.EmailField()
+    Message = models.CharField(max_length=500,default='default message')
 
     def __str__(self):
-        return f'{self.name} - {self.news.title}'
+        return "Comment"
+    
+
+    class Meta:
+        verbose_name = "Comment"
+        verbose_name_plural = "Comments"
+
 
 class Subscribe(models.Model):
     email = models.EmailField()

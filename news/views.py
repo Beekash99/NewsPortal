@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect 
-from news.models import News, Category, Subscribe
-from news.forms import ContactUsForm, SubscribeForm, AddNewsByReporterForm, updateNewsByReporterForm
+from news.models import News, Category,Subscribe,Comment
+from news.forms import ContactUsForm, SubscribeForm, AddNewsByReporterForm, updateNewsByReporterForm,CommentForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
@@ -56,6 +56,14 @@ def contact_us(request):
     else:
         print(form.errors)
     return render(request, "contactus.html")
+
+def comment(request):
+    form = CommentForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    else:
+        print(form.errors)
+    return render(request, "details.html")
 
 def subscribe(request):
     form = SubscribeForm(request.POST or None)
