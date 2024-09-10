@@ -4,6 +4,8 @@ from news.apis.views import NewsList, NewsCategory
 
 
 router = DefaultRouter()
+
+# api path define in routers
 router.register(
     "v1/public/news", NewsList, basename="NewsList"
 ),

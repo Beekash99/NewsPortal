@@ -72,7 +72,7 @@ class Subscribe(models.Model):
     
 class Meta:
         verbose_name = "Subcribe"
-        verbose_name_plural = "Subcribe"
+        verbose_name_plural = "Subcribes"
 
 
 class SocialMedia(models.Model):

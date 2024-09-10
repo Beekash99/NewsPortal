@@ -148,10 +148,9 @@ def updated_news_by_reporter(request, id):
 @login_required(login_url='home_page')
 def delete_news_by_reporter(request, id):
     try:
-        news=News.Objects.get(id=id)
+        news=News.objects.filter(id=id).first()
         news.delete()
         return redirect("reporter_news")
     except Exception as e:
-        error_message="An error while occured while fetching the request you made"
-        messages.error=(request, error_message)
+        messages.error=(request,"This news cannot be deleted")
         return redirect("home_page")

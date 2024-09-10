@@ -30,23 +30,23 @@
 </div>
 
     
-<div class="comment-form-wrap pt-5">
+<div class="comment-form-wrap pt-5" >
     <div class="section-title">
     <h2 class="ml-5">Leave a comment</h2>
     </div>
-    <form method="post">
+    <form method="post" style="margin-left: 50px; border-radius: 8px; ">
     {% csrf_token %}
     <div class="form-group">
         <label for="name">Name </label>
-        <input type="text" name="name" class="form-control" id="name">
+        <input type="text" name="name" class="form-control" id="name" style="border: 2px solid gray;">
     </div>
     <div class="form-group">
         <label for="email">Email </label>
-        <input type="text" name="Email" class="form-control" id="email">
+        <input type="text" name="Email" class="form-control" id="email" style="border: 2px solid gray;">
     </div>
     <div class="form-group">
         <label for="message">Message</label>
-        <textarea name="" id="message" name="Message" cols="30" rows="10" class="form-control"></textarea>
+        <textarea name="" id="message" name="Message" cols="30" rows="10" class="form-control" style="border: 2px solid gray;"></textarea>
     </div>
     <div class="form-group">
         <input type="submit" value="Post Comment" class="btn btn-primary py-3">
